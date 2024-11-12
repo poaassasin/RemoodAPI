@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="978dp"
+    android:background="@drawable/drawable_shape">
+
+    <TextView
+        android:id="@+id/text_rekomendasi_minggu_ini"
+        android:layout_width="188dp"
+        android:layout_height="28dp"
+        android:layout_gravity="top|left"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="369dp"
+        android:gravity="left|center_vertical"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="Rekomendasi minggu ini!"
+        android:textColor="#FF000000"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/text_trending_forum"
+        android:layout_width="188dp"
+        android:layout_height="28dp"
+        android:layout_gravity="top|left"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="643dp"
+        android:gravity="left|center_vertical"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="Trending Forum"
+        android:textColor="#FF000000"
+        android:textSize="15dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="64dp"
+        android:gravity="left|center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/image_ellipse"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/image_ellipse" />
+
+        <LinearLayout
+            android:layout_width="124dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="-1dp"
+            android:layout_marginBottom="-1dp"
+            android:clipToPadding="false"
+            android:gravity="left|top"
+            android:orientation="vertical"
+            android:paddingTop="1dp"
+            android:paddingBottom="1dp">
+
+            <TextView
+                android:id="@+id/text_hai_yuna_kim"
+                android:layout_width="185dp"
+                android:layout_height="21dp"
+                android:layout_marginTop="-1dp"
+                android:layout_marginBottom="-1dp"
+                android:gravity="left|center_vertical"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="Hai, Yuna Kim 👋"
+                android:textColor="#FF262626"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/text_bagaimana_sua_hatimu"
+                android:layout_width="203dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="-1dp"
+                android:gravity="left|center_vertical"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="Bagaimana suasana hatimu hari ini?"
+                android:textColor="#FF000000"
+                android:textSize="11dp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/image_icon_notification_fill"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="114dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/image_icon_notification_fill" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/image_rectangle"
+        android:layout_width="320dp"
+        android:layout_height="91dp"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="130dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/image_rectangle" />
+
+    <LinearLayout
+        android:layout_width="298dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="147dp"
+        android:layout_marginBottom="-1dp"
+        android:clipToPadding="false"
+        android:gravity="left|top"
+        android:orientation="vertical"
+        android:paddingBottom="1dp">
+
+        <TextView
+            android:id="@+id/text_sesuatu_yang_dapat"
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:gravity="left|top"
+            android:includeFontPadding="false"
+            android:lineHeight="14.22dp"
+            android:text="“Sesuatu yang dapat dibayangkan pasti dapat diraih. Sesuatu yang bisa diimpikan pasti dapat diwujudkan.”"
+            android:textColor="#FFFFFFFF"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/text_today_quote"
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="-1dp"
+            android:gravity="right|center_vertical"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="-Today’s Quote"
+            android:textColor="#FFFFFFFF"
+            android:textSize="11dp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="128dp"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="231dp">
+
+        <FrameLayout
+            android:layout_width="320dp"
+            android:layout_height="128dp"
+            android:layout_gravity="top|left">
+
+            <ImageView
+                android:id="@+id/image_rectangle1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/image_rectangle1"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/drawable_image" />
+
+            <LinearLayout
+                android:layout_width="196dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|left"
+                android:layout_marginLeft="19dp"
+                android:layout_marginTop="16.5dp"
+                android:clipToPadding="false"
+                android:gravity="left|top"
+                android:orientation="vertical"
+                android:paddingTop="0.5dp">
+
+                <TextView
+                    android:id="@+id/text_senang_moderat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="-0.5dp"
+                    android:layout_marginBottom="-0.5dp"
+                    android:gravity="left|center_vertical"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="Senang Moderat"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/text_lebih_baik_daripada"
+                    android:layout_width="196dp"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="8dp"
+                    android:alpha="0.8999999761581421"
+                    android:gravity="left|top"
+                    android:includeFontPadding="false"
+                    android:lineHeight="18dp"
+                    android:text="Lebih baik daripada minggu sebelumnya!"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="11dp" />
+
+                <LinearLayout
+                    android:layout_width="125dp"
+                    android:layout_height="31.99dp"
+                    android:layout_marginTop="0.22dp"
+                    android:layout_marginBottom="-7.78dp"
+                    android:clipToPadding="false"
+                    android:gravity="left|center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="7.78dp"
+                    android:paddingBottom="7.78dp">
+
+                    <TextView
+                        android:id="@+id/text_cek_perkembangan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:gravity="left|top"
+                        android:includeFontPadding="false"
+                        android:lineHeight="32dp"
+                        android:text="Cek Perkembangan"
+                        android:textColor="#FFF3F566"
+                        android:textSize="11dp" />
+
+                    <ImageView
+                        android:id="@+id/image_outline_date_range"
+                        android:layout_width="17dp"
+                        android:layout_height="17dp"
+                        android:layout_marginLeft="5dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/image_outline_date_range" />
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/image_perasaan"
+            android:layout_width="77dp"
+            android:layout_height="77dp"
+            android:layout_gravity="top|left"
+            android:layout_marginLeft="222dp"
+            android:layout_marginTop="24dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/image_perasaan" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="321dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="403dp"
+        android:gravity="right|top"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@drawable/drawable_shape_1"
+            android:gravity="left|top"
+            android:orientation="vertical"
+            android:paddingLeft="17dp"
+            android:paddingTop="6dp"
+            android:paddingRight="17dp"
+            android:paddingBottom="6dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="58dp"
+                android:gravity="left|center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/image_mom_helps_daughter"
+                    android:layout_width="88dp"
+                    android:layout_height="54dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/image_mom_helps_daughter" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginBottom="-0.5dp"
+                    android:clipToPadding="false"
+                    android:gravity="left|top"
+                    android:orientation="vertical"
+                    android:paddingBottom="0.5dp">
+
+                    <TextView
+                        android:id="@+id/text_mengajar_autisme"
+                        android:layout_width="match_parent"
+                        android:layout_height="18dp"
+                        android:gravity="left|center_vertical"
+                        android:includeFontPadding="false"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="Mengajar anak dengan Autisme"
+                        android:textColor="#FF000000"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:id="@+id/text_dr_mary_barbera"
+                        android:layout_width="wrap_content"
+                        android:layout_height="15dp"
+                        android:layout_marginTop="-0.5dp"
+                        android:layout_marginBottom="-0.5dp"
+                        android:gravity="left|center_vertical"
+                        android:includeFontPadding="false"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="Dr. Mary Barbera"
+                        android:textColor="#FF909090"
+                        android:textSize="11dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/drawable_shape_2"
+            android:gravity="left|center_vertical"
+            android:orientation="vertical"
+            android:paddingLeft="28dp"
+            android:paddingTop="8dp"
+            android:paddingRight="28dp"
+            android:paddingBottom="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left|center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/image_massage_therapist"
+                    android:layout_width="59dp"
+                    android:layout_height="54.07dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/image_massage_therapist" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginBottom="-0.5dp"
+                    android:clipToPadding="false"
+                    android:gravity="left|top"
+                    android:orientation="vertical"
+                    android:paddingBottom="0.5dp">
+
+                    <TextView
+                        android:id="@+id/text_didiagnosa_autism"
+                        android:layout_width="match_parent"
+                        android:layout_height="18dp"
+                        android:gravity="left|center_vertical"
+                        android:includeFontPadding="false"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="Didiagnosa Autism, DiSTEM..."
+                        android:textColor="#FF000000"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:id="@+id/text_dr_richard_lee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="15dp"
+                        android:layout_marginTop="-0.5dp"
+                        android:layout_marginBottom="-0.5dp"
+                        android:gravity="left|center_vertical"
+                        android:includeFontPadding="false"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="dr. Richard Lee, MARS"
+                        android:textColor="#FF909090"
+                        android:textSize="11dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/drawable_shape_3"
+            android:gravity="left|center_vertical"
+            android:orientation="vertical"
+            android:paddingLeft="28dp"
+            android:paddingTop="4dp"
+            android:paddingRight="28dp"
+            android:paddingBottom="4dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left|center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/image_florist"
+                    android:layout_width="61dp"
+                    android:layout_height="58dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/image_florist" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginBottom="-0.5dp"
+                    android:clipToPadding="false"
+                    android:gravity="left|center_vertical"
+                    android:orientation="vertical"
+                    android:paddingBottom="0.5dp">
+
+                    <TextView
+                        android:id="@+id/text_belajar_bersama_flora"
+                        android:layout_width="match_parent"
+                        android:layout_height="18dp"
+                        android:gravity="left|center_vertical"
+                        android:includeFontPadding="false"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="Belajar bersama Flora"
+                        android:textColor="#FF000000"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:id="@+id/text_dr_mary_barbera1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="15dp"
+                        android:layout_marginTop="-0.5dp"
+                        android:layout_marginBottom="-0.5dp"
+                        android:gravity="left|center_vertical"
+                        android:includeFontPadding="false"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="Dr. Mary Barbera"
+                        android:textColor="#FF909090"
+                        android:textSize="11dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="676dp"
+        android:gravity="left|center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="170dp"
+            android:layout_height="129dp"
+            android:background="@drawable/drawable_shape_4"
+            android:gravity="left|top"
+            android:orientation="vertical"
+            android:paddingLeft="14dp"
+            android:paddingTop="8dp"
+            android:paddingRight="14dp"
+            android:paddingBottom="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left|center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/image_image"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/image_image" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:gravity="left|top"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/text_dewangga"
+                        android:layout_width="wrap_content"
+                        android:layout_height="18dp"
+                        android:gravity="left|top"
+                        android:includeFontPadding="false"
+                        android:lineHeight="18dp"
+                        android:text="@/dewangga"
+                        android:textColor="#FF000000"
+                        android:textSize="9dp" />
+
+                    <TextView
+                        android:id="@+id/text_artist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="18dp"
+                        android:layout_marginTop="-7dp"
+                        android:gravity="left|top"
+                        android:includeFontPadding="false"
+                        android:lineHeight="18dp"
+                        android:text="Artist"
+                        android:textColor="#FF909090"
+                        android:textSize="7dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/image_image1"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="5dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/image_image1" />
+
+            <TextView
+                android:id="@+id/text_penasaran_gasih"
+                android:layout_width="match_parent"
+                android:layout_height="18dp"
+                android:layout_marginTop="6dp"
+                android:ellipsize="end"
+                android:gravity="left|top"
+                android:includeFontPadding="false"
+                android:lineHeight="18dp"
+                android:text="Penasaran gasih siapa yang pertama kali melukis dengan gaya ini?"
+                android:textColor="#FF000000"
+                android:textSize="7dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="170dp"
+            android:layout_height="129dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/drawable_shape_5"
+            android:gravity="left|top"
+            android:orientation="vertical"
+            android:paddingLeft="14dp"
+            android:paddingTop="8dp"
+            android:paddingRight="14dp"
+            android:paddingBottom="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left|center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/image_image2"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/image_image2" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:gravity="left|top"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/text_dewangga1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="18dp"
+                        android:gravity="left|top"
+                        android:includeFontPadding="false"
+                        android:lineHeight="18dp"
+                        android:text="@/dewangga"
+                        android:textColor="#FF000000"
+                        android:textSize="9dp" />
+
+                    <TextView
+                        android:id="@+id/text_artist1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="18dp"
+                        android:layout_marginTop="-7dp"
+                        android:gravity="left|top"
+                        android:includeFontPadding="false"
+                        android:lineHeight="18dp"
+                        android:text="Artist"
+                        android:textColor="#FF909090"
+                        android:textSize="7dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/image_image3"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="5dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/image_image3" />
+
+            <TextView
+                android:id="@+id/text_penasaran_gasih1"
+                android:layout_width="match_parent"
+                android:layout_height="18dp"
+                android:layout_marginTop="6dp"
+                android:ellipsize="end"
+                android:gravity="left|top"
+                android:includeFontPadding="false"
+                android:lineHeight="18dp"
+                android:text="Penasaran gasih siapa yang pertama kali melukis dengan gaya ini?"
+                android:textColor="#FF000000"
+                android:textSize="7dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>
