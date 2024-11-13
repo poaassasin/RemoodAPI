@@ -1,6 +1,5 @@
 package am.pam.remoodedit;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,56 +10,55 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity {
     private TextView moodTextView, titleTextView, descTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        moodTextView = findViewById(R.id.textView4); // Mood TextView (e.g., "Happy")
-        titleTextView = findViewById(R.id.textView); // Title TextView (e.g., "Makan Bareng")
-        descTextView = findViewById(R.id.textView2); // Description TextView
 
-        // Ambil referensi dari TextView dengan id textView5
-        TextView ubahTextView = findViewById(R.id.textView5);
+        moodTextView = findViewById(R.id.textView4);
+        titleTextView = findViewById(R.id.textView);
+        descTextView = findViewById(R.id.textView2);
 
-        // Set onClickListener untuk berpindah ke EditRemood activity
-        ubahTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Buat Intent untuk berpindah ke EditRemood activity
-                Intent intent = new Intent(MainActivity.this, EditRemood.class);
+        TextView ubahTextView = findViewById(R.id.textView5); // Tombol "Ubah"
+        ubahTextView.setOnClickListener(v -> {
+            // Setel FrameLayout menjadi terlihat
+            findViewById(R.id.fragment_container).setVisibility(View.VISIBLE);
+            // Kirim data awal ke fragment
+            Bundle bundle = new Bundle();
+            bundle.putString("currentMood", moodTextView.getText().toString());
+            bundle.putString("currentTitle", titleTextView.getText().toString());
+            bundle.putString("currentDesc", descTextView.getText().toString());
 
-                // Kirim data yang ada ke EditRemood
-                intent.putExtra("currentMood", moodTextView.getText().toString());
-                intent.putExtra("currentTitle", titleTextView.getText().toString());
-                intent.putExtra("currentDesc", descTextView.getText().toString());
+            EditRemoodFragment fragment = new EditRemoodFragment();
+            fragment.setArguments(bundle);
 
-                startActivityForResult(intent,1); // Memulai activity baru
-            }
+            // Tampilkan EditRemoodFragment di FrameLayout
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_container, fragment);
+            transaction.addToBackStack(null); // Tambahkan ke back stack
+            transaction.commit();
         });
-    }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1 && resultCode == RESULT_OK) {
-            // Terima data yang telah diedit dari EditRemood
-            String newMood = data.getStringExtra("newMood");
-            String newTitle = data.getStringExtra("newTitle");
-            String newDesc = data.getStringExtra("newDesc");
+        // Listener untuk menerima data dari EditRemoodFragment
+        getSupportFragmentManager().setFragmentResultListener("editResult", this, (requestKey, result) -> {
+            String newMood = result.getString("newMood");
+            String newTitle = result.getString("newTitle");
+            String newDesc = result.getString("newDesc");
 
-            // Update tampilan di MainActivity
             moodTextView.setText(newMood);
             titleTextView.setText(newTitle);
             descTextView.setText(newDesc);
 
-            // Update gambar sesuai dengan mood yang diterima
-            ImageView moodImageView = findViewById(R.id.imageView); // pastikan id dari imageView di activity_main benar
+            // Update gambar berdasarkan mood baru
+            ImageView moodImageView = findViewById(R.id.imageView);
             switch (newMood) {
                 case "Happy":
-                    moodImageView.setImageResource(R.drawable.happy);
+                    moodImageView.setImageResource(R.drawable.happyy);
                     break;
                 case "Good":
                     moodImageView.setImageResource(R.drawable.good);
@@ -75,8 +73,10 @@ public class MainActivity extends AppCompatActivity {
                     moodImageView.setImageResource(R.drawable.angry);
                     break;
                 default:
-                    moodImageView.setImageResource(R.drawable.happy);
+                    moodImageView.setImageResource(R.drawable.happyy);
             }
-        }
+            // Sembunyikan FrameLayout setelah Fragment selesai
+            findViewById(R.id.fragment_container).setVisibility(View.GONE);
+        });
     }
 }

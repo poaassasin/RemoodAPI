@@ -13,7 +13,7 @@
         android:theme="@style/Theme.ReMoodEdit"
         tools:targetApi="31">
         <activity
-            android:name=".EditRemood"
+            android:name=".EditRemoodFragment"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
