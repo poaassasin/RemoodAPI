@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Remood</string>
+    <string name="belum_ada_mood">Belum ada catatan mood bulan ini</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="next">next</string>
+    <string name="jurnal_hari">Jurnal Hari Ini</string>
+    <string name="perasaansenang">Happy!</string>
+    <string name="perasaandatar">Meh!</string>
+    <string name="perasaansedih">Sedih:(</string>
+    <string name="perasaanmarah">Marah!</string>
+    <string name="perasaanoke">Oke!</string>
+</resources>
