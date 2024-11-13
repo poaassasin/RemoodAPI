@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="options_list" >
+        <item>Happy</item>
+        <item>Good</item>
+        <item>So-So</item>
+        <item>Sad</item>
+        <item>Bad</item>
+    </string-array>
+</resources>
