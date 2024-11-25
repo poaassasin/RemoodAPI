@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/buatJurnal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Buatjurnal">
+
+    <TextView
+        android:id="@+id/jurnal_hari"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="100dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/jurnal_hari"
+        android:textColor="#455A64"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ketMood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/jurnal_hari"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="76dp"
+        android:layout_toStartOf="@+id/jurnal_hari"
+        android:fontFamily="sans-serif-medium"
+        android:text=""
+        android:textColor="@color/darkgray"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/jurnal_hari" />
+
+    <ImageView
+        android:id="@+id/moodUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ketMood"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="12dp"
+        android:layout_toStartOf="@+id/ketMood"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ketMood" />
+
+    <EditText
+        android:id="@+id/judulJurnal"
+        android:layout_width="362dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="48dp"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        android:hint="Tulis judul..."
+        app:layout_constraintTop_toBottomOf="@+id/moodUser" />
+
+    <EditText
+        android:id="@+id/detailCerita"
+        android:layout_width="359dp"
+        android:layout_height="60dp"
+        android:ems="30"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:hint="Tulis ceritamu hari ini..."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.519"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/judulJurnal" />
+
+    <Button
+        android:id="@+id/btnsimpanJurnal"
+        android:layout_width="263dp"
+        android:layout_height="82dp"
+        android:text="Simpan"
+        android:shadowColor="@color/black"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailCerita" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
