@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "881386582279",
+    "project_id": "remood-68d97",
+    "storage_bucket": "remood-68d97.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:881386582279:android:9faaad9c18cd4f61b555a2",
+        "android_client_info": {
+          "package_name": "com.example.remood"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuBoPOJzLRXclP8eWO_bbNNapTcBIMAJU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
