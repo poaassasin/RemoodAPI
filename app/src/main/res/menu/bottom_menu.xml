@@ -1,0 +1,29 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/navigation_journal"
+        android:title="Jurnal"
+        android:icon="@drawable/ic_jurnal"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home"
+        android:title="Home"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/navigation_add_journal"
+        android:icon="@drawable/ic_add"
+        android:title="TambahJurnal"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/navigation_edulife"
+        android:icon="@drawable/ic_edulife"
+        android:title="EduLife"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/navigation_forum"
+        android:icon="@drawable/ic_forum"
+        android:title="Forum"
+        app:showAsAction="ifRoom" />
+</menu>
