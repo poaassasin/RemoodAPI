@@ -9,24 +9,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.room.Room;
-import androidx.room.RoomDatabase;
-import androidx.sqlite.db.SupportSQLiteDatabase;
-import com.example.remood.model.JurnalModel;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
 
 public class Buatjurnal extends AppCompatActivity {
@@ -35,9 +30,14 @@ public class Buatjurnal extends AppCompatActivity {
     TextView i2;
     EditText judul, detailCerita;
     Button simpan;
+
+    String emosi;
     private ActivityResultLauncher<Intent> resultLauncher;
 
-    JurnalDatabase jurnalDB;
+    FirebaseDatabase db;
+
+    DatabaseReference jurnalRef;
+
     private ImageView imageView;
 
     @Override
@@ -57,22 +57,7 @@ public class Buatjurnal extends AppCompatActivity {
             i1.setImageResource(resid);
             i2.setText(resid2);
         }
-
-        RoomDatabase.Callback myCallBack = new RoomDatabase.Callback() {
-            @Override
-            public void onCreate(@NonNull SupportSQLiteDatabase db) {
-                super.onCreate(db);
-            }
-
-            @Override
-            public void onOpen(@NonNull SupportSQLiteDatabase db) {
-                super.onOpen(db);
-            }
-        };
-
-        jurnalDB = Room.databaseBuilder(getApplicationContext(), JurnalDatabase.class,
-                "JurnalDB").allowMainThreadQueries().addCallback(myCallBack).build();
-
+        emosi = bundle.getString("resId2");
 
         simpan.setOnClickListener(new View.OnClickListener() {
 
@@ -85,13 +70,43 @@ public class Buatjurnal extends AppCompatActivity {
                 SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss a", Locale.getDefault());
                 String tanggal = dateFormat.format(dateAndTime);
                 String waktu = timeFormat.format(dateAndTime);
-                String emosi = bundle.getString("resId2");
                 Toast toast = new Toast(getApplicationContext());
                 Toast.makeText(Buatjurnal.this, emosi, Toast.LENGTH_SHORT).show();
-                JurnalModel p1 = new JurnalModel(judulCerita, detailJudul, emosi, tanggal, waktu);
-                jurnalDB.getJurnalDAO().addJurnal(p1);
+                addJurnalToDB(judulCerita, detailJudul, emosi, tanggal, waktu);
                 finish();
             }
+        });
+
+    }
+
+    private void addJurnalToDB(String judulCerita, String detailJudul, String emosi, String tanggal, String waktu) {
+        HashMap<String, Object> jurnalHashmap = new HashMap<>();
+        jurnalHashmap.put("curhatan", judulCerita);
+        jurnalHashmap.put("detail_curhatan", detailJudul);
+        jurnalHashmap.put("link_gambar_emosi", emosi);
+        jurnalHashmap.put("tanggal", tanggal);
+        jurnalHashmap.put("waktu", waktu);
+
+
+        db = FirebaseDatabase.getInstance();
+        jurnalRef = db.getReference("catatan");
+
+        String key = jurnalRef.push().getKey();
+
+        jurnalHashmap.put("key", key);
+
+        jurnalRef.child(key).setValue(jurnalHashmap).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                Toast.makeText(Buatjurnal.this, "Added", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(Buatjurnal.this,
+                                        e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                            }
         });
 
     }

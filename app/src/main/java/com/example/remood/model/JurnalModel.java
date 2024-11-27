@@ -1,28 +1,20 @@
 package com.example.remood.model;
-import androidx.room.ColumnInfo;
-import androidx.room.Entity;
-import androidx.room.Ignore;
-import androidx.room.PrimaryKey;
 
-@Entity(tableName = "Jurnal")
+
+import androidx.room.Ignore;
+
+
 public class JurnalModel {
-    @ColumnInfo(name="jurnal_id")
-    @PrimaryKey(autoGenerate = true)
     private long id;
 
-    @ColumnInfo(name="tanggal")
     public String tanggal;
 
-    @ColumnInfo(name="waktu")
     public String waktu;
 
-    @ColumnInfo(name="judul")
     public String curhatan;
 
-    @ColumnInfo(name="emosi")
     public String link_gambar_emosi;
 
-    @ColumnInfo(name="deskripsi")
     public String detail_curhatan;
 
     @Ignore
@@ -48,16 +40,16 @@ public class JurnalModel {
         return detail_curhatan;
     }
 
-    public void setDetailCurhatan(String detailCurhatan) {
-        this.detail_curhatan = detailCurhatan;
+    public void setDetailCurhatan(String detail_curhatan) {
+        this.detail_curhatan = detail_curhatan;
     }
 
     public String getLinkGambarEmosi() {
         return link_gambar_emosi;
     }
 
-    public void setLinkGambarEmosi(String linkGambarEmosi) {
-        this.link_gambar_emosi = linkGambarEmosi;
+    public void setLinkGambarEmosi(String link_gambar_emosi) {
+        this.link_gambar_emosi = link_gambar_emosi;
     }
 
     public String getCurhatan() {

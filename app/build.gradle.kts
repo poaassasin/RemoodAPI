@@ -56,6 +56,5 @@ dependencies {
     implementation(libs.okHttp)
     implementation(libs.room.runtime)
     annotationProcessor(libs.room.compiler)
-
 }
 

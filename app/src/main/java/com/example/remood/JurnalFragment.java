@@ -1,5 +1,7 @@
 package com.example.remood;
 
+import static android.content.ContentValues.TAG;
+
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -22,35 +24,29 @@ import com.example.remood.base.VolleySingleton;
 import com.example.remood.databinding.FragmentJurnalBinding;
 import com.example.remood.model.JurnalModel;
 import com.example.remood.model.JurnalResponse;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class JurnalFragment extends Fragment implements JurnalItemAdapter.ItemCallbackListener {
     private FragmentJurnalBinding binding;
     private ArrayList<JurnalModel> listData;
     private JurnalItemAdapter adapter;
 
-    private JurnalDatabase jurnalDB;
+
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        RoomDatabase.Callback myCallBack = new RoomDatabase.Callback() {
-            @Override
-            public void onCreate(@NonNull SupportSQLiteDatabase db) {
-                super.onCreate(db);
-            }
-
-            @Override
-            public void onOpen(@NonNull SupportSQLiteDatabase db) {
-                super.onOpen(db);
-            }
-        };
-        jurnalDB = Room.databaseBuilder(requireActivity().getApplicationContext(), JurnalDatabase.class,
-                "JurnalDB").allowMainThreadQueries().addCallback(myCallBack).build();
         binding = FragmentJurnalBinding.inflate(inflater,container,false);
         return binding.getRoot();
 
@@ -61,66 +57,49 @@ public class JurnalFragment extends Fragment implements JurnalItemAdapter.ItemCa
         super.onViewCreated(view, savedInstanceState);
         binding.rvList.setLayoutManager(new LinearLayoutManager(this.getContext()));
         listData= new ArrayList<>();
-        loadDatabase();
+        adapter = new JurnalItemAdapter(listData, this::onClick);
+        binding.rvList.setAdapter(adapter);
+        binding.rvList.setVisibility(View.VISIBLE);
+        binding.placeholderContainer.setVisibility(View.INVISIBLE);
+        loadFirebase();
     }
 
-    private void loadDatabase() {
-
+    private void loadFirebase() {
         listData.clear();
-        List<JurnalModel> jurnal = jurnalDB.getJurnalDAO().getAllJurnal();
-        if (jurnal.isEmpty()) {
-            binding.rvList.setVisibility(View.INVISIBLE);
-            binding.placeholderContainer.setVisibility(View.VISIBLE);
-        } else {
-            for (JurnalModel jurnalItem : jurnal) {
-                listData.add(new JurnalModel(
-                        jurnalItem.getCurhatan(),
-                        jurnalItem.getDetailCurhatan(),
-                        jurnalItem.getLinkGambarEmosi(),
-                        jurnalItem.getTanggal(),
-                        jurnalItem.getWaktu()
-                ));
+        FirebaseDatabase.getInstance().getReference("catatan").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                listData.clear();
+                JurnalModel catatan = snapshot.getValue(JurnalModel.class);
+                if (catatan == null) {
+                    binding.rvList.setVisibility(View.INVISIBLE);
+                    binding.placeholderContainer.setVisibility(View.VISIBLE);
+                } else {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    JurnalModel catatanLoop = dataSnapshot.getValue(JurnalModel.class);
+                        listData.add( new JurnalModel(catatanLoop.getCurhatan(),
+                                catatanLoop.getDetailCurhatan(),
+                                catatanLoop.getLinkGambarEmosi(),
+                                catatanLoop.getWaktu(),
+                                catatanLoop.getTanggal()
+                                ));
+                    }
+                    adapter.notifyDataSetChanged();
+                }
             }
-            adapter = new JurnalItemAdapter(listData, this::onClick);
-            binding.rvList.setAdapter(adapter);
-            binding.rvList.setVisibility(View.VISIBLE);
-            binding.placeholderContainer.setVisibility(View.INVISIBLE);
-            adapter.notifyDataSetChanged();
-        }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e(TAG, "Database error: " + error.getMessage());
+            }
+        });
+
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        loadDatabase();
+        loadFirebase();
     }
-
-//    private void fetchData(){
-//        String url = "https://api.mockfly.dev/mocks/eba5320f-d497-441d-a903-08796e25d363/Mood";
-//
-//        // Create a new StringRequest
-//        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-//                response -> {
-//                    Log.d("fetchData", "fetchData: "+response.toString());
-//                    // Parse JSON response with Gson
-//                    Gson gson = new Gson();
-//                    JurnalResponse users = gson.fromJson(response, JurnalResponse.class);
-//                    listData.addAll(users.getData());
-//                    adapter = new JurnalItemAdapter(listData,this::onClick);
-//                    binding.rvList.setAdapter(adapter);
-//                    binding.rvList.setVisibility(View.VISIBLE);
-//                    binding.placeholderContainer.setVisibility(View.INVISIBLE);
-//                },
-//                error -> {
-//                    binding.rvList.setVisibility(View.INVISIBLE);
-//                    binding.placeholderContainer.setVisibility(View.VISIBLE);
-//                    Log.e("Volley Error", error.toString());
-//                });
-//
-//        // Add the request to the RequestQueue
-//        VolleySingleton.getInstance(this.getContext()).getRequestQueue().add(stringRequest);
-//    }
-
     @Override
     public void onClick(int position) {
 //        jurnalDB.getJurnalDAO().deleteJurnal(listData.get(position));
