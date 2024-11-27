@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "15053669191",
+    "firebase_url": "https://remood-34cfa-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "remood-34cfa",
+    "storage_bucket": "remood-34cfa.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:15053669191:android:e2db3ca5981ada33cb4262",
+        "android_client_info": {
+          "package_name": "am.pam.remoodedit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAm_5XvyXO3Yvj2tHzxa4tdPgIr8k_goZM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:15053669191:android:0f5b73f8ac54a827cb4262",
+        "android_client_info": {
+          "package_name": "am.pam.remoodeditfirebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAm_5XvyXO3Yvj2tHzxa4tdPgIr8k_goZM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

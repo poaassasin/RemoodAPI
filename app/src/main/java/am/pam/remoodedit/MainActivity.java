@@ -4,79 +4,127 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+
 public class MainActivity extends AppCompatActivity {
-    private TextView moodTextView, titleTextView, descTextView;
+
+    private TextView moodTextView, titleTextView, descTextView, dateTextView;
+    ImageView moodImageView;
+    private FirebaseDatabase fD;
+    private Remood currentMoodEntity;
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Inisialisasi FirebaseDatabase dan DatabaseReference
+        fD = FirebaseDatabase.getInstance(
+                "https://remood-34cfa-default-rtdb.asia-southeast1.firebasedatabase.app/"
+        );
+        databaseReference = fD.getReference("moods");
+
+        // Inisialisasi UI
         moodTextView = findViewById(R.id.textView4);
         titleTextView = findViewById(R.id.textView);
         descTextView = findViewById(R.id.textView2);
+        moodImageView = findViewById(R.id.imageView);
+        dateTextView = findViewById(R.id.textView3);
 
-        TextView ubahTextView = findViewById(R.id.textView5); // Tombol "Ubah"
-        ubahTextView.setOnClickListener(v -> {
-            // Setel FrameLayout menjadi terlihat
-            findViewById(R.id.fragment_container).setVisibility(View.VISIBLE);
-            // Kirim data awal ke fragment
-            Bundle bundle = new Bundle();
-            bundle.putString("currentMood", moodTextView.getText().toString());
-            bundle.putString("currentTitle", titleTextView.getText().toString());
-            bundle.putString("currentDesc", descTextView.getText().toString());
+        // Mendengarkan data mood dengan ID 1 secara real-time
+        databaseReference.child("1").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                currentMoodEntity = snapshot.getValue(Remood.class);
 
-            EditRemoodFragment fragment = new EditRemoodFragment();
-            fragment.setArguments(bundle);
+                if (currentMoodEntity == null) {
+                    // Buat data default jika belum ada
+                    currentMoodEntity = new Remood("Happy", "Default Title", "Default Description", "01 September 2024");
+                    currentMoodEntity.id = 1;
+                    databaseReference.child(String.valueOf(currentMoodEntity.id)).setValue(currentMoodEntity);
+                }
 
-            // Tampilkan EditRemoodFragment di FrameLayout
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragment_container, fragment);
-            transaction.addToBackStack(null); // Tambahkan ke back stack
-            transaction.commit();
-        });
-
-        // Listener untuk menerima data dari EditRemoodFragment
-        getSupportFragmentManager().setFragmentResultListener("editResult", this, (requestKey, result) -> {
-            String newMood = result.getString("newMood");
-            String newTitle = result.getString("newTitle");
-            String newDesc = result.getString("newDesc");
-
-            moodTextView.setText(newMood);
-            titleTextView.setText(newTitle);
-            descTextView.setText(newDesc);
-
-            // Update gambar berdasarkan mood baru
-            ImageView moodImageView = findViewById(R.id.imageView);
-            switch (newMood) {
-                case "Happy":
-                    moodImageView.setImageResource(R.drawable.happyy);
-                    break;
-                case "Good":
-                    moodImageView.setImageResource(R.drawable.good);
-                    break;
-                case "So-So":
-                    moodImageView.setImageResource(R.drawable.meh);
-                    break;
-                case "Sad":
-                    moodImageView.setImageResource(R.drawable.sadd);
-                    break;
-                case "Bad":
-                    moodImageView.setImageResource(R.drawable.angry);
-                    break;
-                default:
-                    moodImageView.setImageResource(R.drawable.happyy);
+                // Perbarui UI dengan data yang dimuat
+                updateUI(currentMoodEntity);
             }
-            // Sembunyikan FrameLayout setelah Fragment selesai
-            findViewById(R.id.fragment_container).setVisibility(View.GONE);
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(MainActivity.this, "Gagal memuat data", Toast.LENGTH_SHORT).show();
+            }
         });
+
+        // Tombol "Ubah"
+        TextView ubahTextView = findViewById(R.id.textView5);
+        ubahTextView.setOnClickListener(v -> {
+            if (currentMoodEntity != null) {
+                openEditFragment();
+            } else {
+                Toast.makeText(MainActivity.this, "Data belum siap, silakan coba lagi.", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void updateUI(Remood mood) {
+        moodTextView.setText(mood.mood);
+        titleTextView.setText(mood.title);
+        descTextView.setText(mood.description);
+        dateTextView.setText(mood.date);
+        updateMoodImage(mood.mood);
+    }
+
+    private void updateMoodImage(String mood) {
+        switch (mood) {
+            case "Happy":
+                moodImageView.setImageResource(R.drawable.happyy);
+                break;
+            case "Good":
+                moodImageView.setImageResource(R.drawable.good);
+                break;
+            case "So-So":
+                moodImageView.setImageResource(R.drawable.meh);
+                break;
+            case "Sad":
+                moodImageView.setImageResource(R.drawable.sadd);
+                break;
+            case "Bad":
+                moodImageView.setImageResource(R.drawable.angry);
+                break;
+            default:
+                moodImageView.setImageResource(R.drawable.sadd);
+        }
+    }
+
+    private void openEditFragment() {
+        findViewById(R.id.fragment_container).setVisibility(View.VISIBLE);
+
+        // Kirim data ke fragment
+        Bundle bundle = new Bundle();
+        bundle.putInt("id", currentMoodEntity.id);
+        bundle.putString("currentMood", currentMoodEntity.mood);
+        bundle.putString("currentTitle", currentMoodEntity.title);
+        bundle.putString("currentDesc", currentMoodEntity.description);
+        bundle.putString("currentDate", currentMoodEntity.date);
+
+        EditRemoodFragment fragment = new EditRemoodFragment();
+        fragment.setArguments(bundle);
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }
