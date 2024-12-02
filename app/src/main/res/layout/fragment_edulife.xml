@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container_eduhub"
+    android:layout_width="match_parent"
+    android:layout_height="887dp"
+    android:background="@drawable/container_eduhub">
+
+    <LinearLayout
+        android:id="@+id/container_frame"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="620dp"
+        android:gravity="left|top"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/image_frame"
+            android:layout_width="match_parent"
+            android:layout_height="92dp"
+            android:background="@drawable/image_frame"
+            android:scaleType="centerCrop" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/image_frame2"
+        android:layout_width="30dp"
+        android:layout_height="15dp"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="242dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/image_frame2" />
+
+    <TextView
+        android:id="@+id/text_text"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginLeft="61dp"
+        android:layout_marginTop="275.5dp"
+        android:layout_marginBottom="-12.5dp"
+        android:layout_gravity="top|left"
+        android:gravity="left|center_vertical"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text=""
+        android:textColor="#FF000000"
+        android:textSize="20dp" />
+
+
+    <ImageView
+        android:id="@+id/image_frame4"
+        android:layout_width="90dp"
+        android:layout_height="70dp"
+        android:layout_gravity="top|left"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="620dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/image_frame4" />
+
+    <LinearLayout
+        android:id="@+id/container_frame1"
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|left"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="645dp"
+        android:gravity="left|top"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_yoga_poses"
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:gravity="left|center_vertical"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="Yoga Poses"
+            android:textColor="#FF01050D"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/text_dr_mary_barbera"
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            android:layout_marginTop="4dp"
+            android:gravity="left|center_vertical"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="Dr. Mary Barbera"
+            android:textColor="#FF6F6F6F"
+            android:textSize="12dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_konten_populer"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:layout_gravity="top|left"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        android:gravity="left|center_vertical"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="Konten Populer"
+        android:textColor="#FF000000"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/text_kategori"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:layout_gravity="top|left"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="255dp"
+        android:gravity="left|center_vertical"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="Kategori"
+        android:textColor="#FF000000"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/text_meditasi"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:layout_gravity="top|left"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="590dp"
+        android:gravity="left|center_vertical"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="Meditasi"
+        android:textColor="#FF000000"
+        android:textSize="18dp" />
+
+    <ImageView
+        android:id="@+id/image_rectangle"
+        android:layout_width="340dp"
+        android:layout_height="174dp"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="58dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image_rectangleedu" />
+
+    <FrameLayout
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="290dp">
+
+        <LinearLayout
+            android:id="@+id/container_frame3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="left|top"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/container_frame4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="left|center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/container_frame5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="136dp"
+                        android:background="@drawable/container_frame5"
+                        android:clipToPadding="false"
+                        android:gravity="left|top"
+                        android:orientation="horizontal"
+                        android:paddingLeft="15dp"
+                        android:paddingTop="15dp"
+                        android:paddingRight="15dp"
+                        android:paddingBottom="30dp">
+
+                        <TextView
+                            android:id="@+id/text_kemampuan_verbal"
+                            android:layout_width="120dp"
+                            android:layout_height="38dp"
+                            android:gravity="left|top"
+                            android:includeFontPadding="false"
+                            android:lineHeight="18.96dp"
+                            android:text="Kemampuan Verbal"
+                            android:textColor="#FF0F0F06"
+                            android:textSize="16dp" />
+                    </LinearLayout>
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="136dp"
+                        android:layout_marginLeft="20dp"
+                        android:background="@drawable/drawable_shapeedu">
+
+                        <LinearLayout
+                            android:id="@+id/container_frame6"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/container_frame5"
+                            android:clipToPadding="false"
+                            android:gravity="left|top"
+                            android:orientation="horizontal"
+                            android:paddingLeft="15dp"
+                            android:paddingTop="14dp"
+                            android:paddingRight="15dp"
+                            android:paddingBottom="30dp">
+
+                            <TextView
+                                android:id="@+id/text_kontrol_emosi"
+                                android:layout_width="120dp"
+                                android:layout_height="21dp"
+                                android:gravity="left|center_vertical"
+                                android:includeFontPadding="false"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Kontrol Emosi"
+                                android:textColor="#FF01050D"
+                                android:textSize="16dp" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/image_couple_stress_pana"
+                            android:layout_width="83dp"
+                            android:layout_height="85dp"
+                            android:layout_marginLeft="33dp"
+                            android:layout_marginTop="40dp"
+                            android:layout_marginRight="34dp"
+                            android:layout_marginBottom="11dp"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/image_couple_stress_pana" />
+                    </FrameLayout>
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/image_men_talking_amico"
+                    android:layout_width="83dp"
+                    android:layout_height="85.25dp"
+                    android:layout_marginLeft="52dp"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginRight="185dp"
+                    android:layout_marginBottom="5.75dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/image_men_talking_amico" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/container_frame7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="left|center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/container_frame8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="136dp"
+                    android:background="@drawable/container_frame8"
+                    android:clipToPadding="false"
+                    android:gravity="left|top"
+                    android:orientation="horizontal"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="30dp">
+
+                    <TextView
+                        android:id="@+id/text_kemampuan_sosial"
+                        android:layout_width="120dp"
+                        android:layout_height="38dp"
+                        android:gravity="left|top"
+                        android:includeFontPadding="false"
+                        android:lineHeight="18.96dp"
+                        android:text="Kemampuan Sosial"
+                        android:textColor="#FF01050D"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="136dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/drawable_shape_edu1">
+
+                    <LinearLayout
+                        android:id="@+id/container_frame9"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clipToPadding="false"
+                        android:gravity="left|top"
+                        android:orientation="horizontal"
+                        android:paddingLeft="15dp"
+                        android:paddingTop="15dp"
+                        android:paddingRight="15dp"
+                        android:paddingBottom="30dp">
+
+                        <TextView
+                            android:id="@+id/text_sensorik_dan_motorik"
+                            android:layout_width="120dp"
+                            android:layout_height="38dp"
+                            android:gravity="left|top"
+                            android:includeFontPadding="false"
+                            android:lineHeight="18.96dp"
+                            android:text="Sensorik dan Motorik"
+                            android:textColor="#FF01050D"
+                            android:textSize="16dp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/image_sport_family_amico"
+                        android:layout_width="85.01dp"
+                        android:layout_height="77dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="53dp"
+                        android:layout_marginRight="14.99dp"
+                        android:layout_marginBottom="6dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/image_sport_family_amico" />
+                </FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/image_women_talking_amico"
+            android:layout_width="83.08dp"
+            android:layout_height="83.01dp"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="196dp"
+            android:layout_marginRight="181.92dp"
+            android:layout_marginBottom="7.99dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/image_women_talking_amico" />
+    </FrameLayout>
+</FrameLayout>

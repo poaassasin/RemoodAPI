@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="options_list" >
+        <item>Happy!</item>
+        <item>Oke!</item>
+        <item>Meh</item>
+        <item>Sedih:(</item>
+        <item>Marah!</item>
+    </string-array>
+</resources>

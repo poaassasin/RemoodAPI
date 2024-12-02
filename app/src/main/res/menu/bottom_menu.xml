@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/baseline_home_24"/>
+    <item
+        android:id="@+id/edulife"
+        android:title="Edulife"
+        android:icon="@drawable/baseline_play_display_24"/>
+    <item
+
+        android:title="" />
+    <item
+        android:id="@+id/jurnal"
+        android:title="Jurnal"
+        android:icon="@drawable/baseline_description_24"/>
+    <item
+        android:id="@+id/forum"
+        android:title="Forum"
+        android:icon="@drawable/baseline_people_24"/>
+
+</menu>
