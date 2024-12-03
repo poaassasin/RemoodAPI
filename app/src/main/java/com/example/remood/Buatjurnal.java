@@ -1,5 +1,6 @@
 package com.example.remood;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -35,10 +36,8 @@ public class Buatjurnal extends AppCompatActivity {
     TextView i2, tvKembaliBuat;
     EditText judul, detailCerita;
     Button simpan;
-    private ActivityResultLauncher<Intent> resultLauncher;
 
     JurnalDatabase jurnalDB;
-    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -18,7 +18,7 @@
             android:name=".EditJurnal"
             android:exported="false" />
         <activity
-            android:name=".BottomNav"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -30,12 +30,6 @@
         <activity
             android:name=".Buatjurnal"
             android:exported="false" />
-        <activity
-            android:name=".trackermain"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false"></activity>
 
         <meta-data
             android:name="preloaded_fonts"

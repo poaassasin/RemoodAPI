@@ -6,6 +6,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
@@ -29,8 +31,6 @@ public class HomeFragment extends Fragment {
 
     int emotionResource;
 
-    JurnalItemAdapter adapter;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -39,6 +39,7 @@ public class HomeFragment extends Fragment {
         judul = (TextView) v.findViewById(R.id.text_judulcurhat);
         detailJudul = (TextView) v.findViewById(R.id.text_detailcurhat);
         emojiMood = (ImageView) v.findViewById(R.id.image_perasaan);
+
         RoomDatabase.Callback myCallBack = new RoomDatabase.Callback() {
             @Override
             public void onCreate(@NonNull SupportSQLiteDatabase db) {
@@ -81,6 +82,7 @@ public class HomeFragment extends Fragment {
                     emotionResource = R.drawable.amico;
             }
             emojiMood.setImageResource(emotionResource);
+
         }
         return v;
     }
