@@ -140,6 +140,11 @@ public class JurnalFragment extends Fragment implements JurnalItemAdapter.ItemCa
                     Log.d("JurnalFragment", "Deleted item with ID: "+waktuDiTarik);
                     jurnalDAO.deleteJurnal(jurnalDB.getJurnalDAO().findByWaktu(waktuDiTarik));
                     listData.remove(position);
+                    List<JurnalModel> listJurnal = jurnalDB.getJurnalDAO().getAllJurnal();
+                    if (listJurnal.isEmpty()) {
+                        binding.rvList.setVisibility(View.INVISIBLE);
+                        binding.placeholderContainer.setVisibility(View.VISIBLE);
+                    }
                 }catch (Exception e) {
                     Log.d("JurnalFragment", e.getMessage());
                     Toast.makeText(this.getActivity(), "Tidak Berhasil", Integer.parseInt(e.getMessage()));
