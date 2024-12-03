@@ -1,31 +1,21 @@
 package com.example.remood;
 
 import android.app.DatePickerDialog;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
-
 import com.example.remood.model.JurnalModel;
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
-
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -33,11 +23,8 @@ public class EditJurnal extends AppCompatActivity {
     private EditText titleEditText, descEditText, dateEditText;
     private MaterialAutoCompleteTextView moodAutoCompleteTextView;
     private ImageView mood;
-
-    private JurnalItemAdapter adapter;
     final Calendar myCalendar = Calendar.getInstance();
     private TextView kembaliTextView;
-    private ArrayList<JurnalModel> listData;
     private JurnalDatabase jurnalDB;
 
     @Override
@@ -114,7 +101,6 @@ public class EditJurnal extends AppCompatActivity {
                 Toast.makeText(EditJurnal.this, "Pastikan semua field terisi", Toast.LENGTH_SHORT).show();
                 return;
             }
-//            JurnalModel remood = new JurnalModel(newTitle, newDesc, newMood, selectedDate, waktuTersimpan);
             new Thread(new Runnable() {
                 @Override
                 public void run() {

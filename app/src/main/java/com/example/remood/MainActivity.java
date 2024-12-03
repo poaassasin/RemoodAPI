@@ -8,7 +8,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.Gravity;
 import android.content.Intent;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -43,12 +42,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
 
-        binding.floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showBottomDialog();
-            }
-        });
+        binding.floatingActionButton.setOnClickListener(v -> showBottomDialog()); //lambda
     }
 
     public void replaceFragment(Fragment fragment) {
@@ -72,78 +66,58 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout marahLayout = dialog.findViewById(R.id.layoutMarah);
         ImageView cancelButton = dialog.findViewById(R.id.cancelButton);
 
-        happyLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-                Toast toast = new Toast(getApplicationContext());
-                Toast.makeText(MainActivity.this, "Hari Ini Anda Senang!", Toast.LENGTH_SHORT).show();
-                String perasaan = "Happy!";
-                Intent i = new Intent(MainActivity.this, Buatjurnal.class);
-                i.putExtra("resId",R.drawable.perasaansenang);
-                i.putExtra("resId2", perasaan);
-                startActivity(i);
-            }
+        happyLayout.setOnClickListener(v -> { //lambda
+            dialog.dismiss();
+            Toast toast = new Toast(getApplicationContext());
+            Toast.makeText(MainActivity.this, "Hari Ini Anda Senang!", Toast.LENGTH_SHORT).show();
+            String perasaan = "Happy!";
+            Intent i = new Intent(MainActivity.this, Buatjurnal.class);
+            i.putExtra("resId",R.drawable.perasaansenang);
+            i.putExtra("resId2", perasaan);
+            startActivity(i);
         });
 
-        goodLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-                Toast.makeText(MainActivity.this, "Hari Ini Anda Oke!", Toast.LENGTH_SHORT).show();
-                String perasaan = "Oke!";
-                Intent i = new Intent(MainActivity.this, Buatjurnal.class);
-                i.putExtra("resId",R.drawable.perasaanoke);
-                i.putExtra("resId2", perasaan);
-                startActivity(i);
-            }
+        goodLayout.setOnClickListener(v -> { //lambda
+            dialog.dismiss();
+            Toast.makeText(MainActivity.this, "Hari Ini Anda Oke!", Toast.LENGTH_SHORT).show();
+            String perasaan = "Oke!";
+            Intent i = new Intent(MainActivity.this, Buatjurnal.class);
+            i.putExtra("resId",R.drawable.perasaanoke);
+            i.putExtra("resId2", perasaan);
+            startActivity(i);
         });
 
-        datarLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-                Toast.makeText(MainActivity.this, "Hari Ini Anda Biasa!", Toast.LENGTH_SHORT).show();
-                String perasaan = "Meh";
-                Intent i = new Intent(MainActivity.this, Buatjurnal.class);
-                i.putExtra("resId",R.drawable.perasaandatar);
-                i.putExtra("resId2", perasaan);
-                startActivity(i);
-            }
+        datarLayout.setOnClickListener(v -> { //lambda
+            dialog.dismiss();
+            Toast.makeText(MainActivity.this, "Hari Ini Anda Biasa!", Toast.LENGTH_SHORT).show();
+            String perasaan = "Meh";
+            Intent i = new Intent(MainActivity.this, Buatjurnal.class);
+            i.putExtra("resId",R.drawable.perasaandatar);
+            i.putExtra("resId2", perasaan);
+            startActivity(i);
         });
 
-        sedihLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-                Toast.makeText(MainActivity.this, "Hari Ini Anda Sedih:( Semangat Ya!", Toast.LENGTH_SHORT).show();
-                String perasaan = "Sedih:(";
-                Intent i = new Intent(MainActivity.this, Buatjurnal.class);
-                i.putExtra("resId",R.drawable.perasaansedih);
-                i.putExtra("resId2", perasaan);
-                startActivity(i);
-            }
+        sedihLayout.setOnClickListener(v -> { //lambda
+            dialog.dismiss();
+            Toast.makeText(MainActivity.this, "Hari Ini Anda Sedih:( Semangat Ya!", Toast.LENGTH_SHORT).show();
+            String perasaan = "Sedih:(";
+            Intent i = new Intent(MainActivity.this, Buatjurnal.class);
+            i.putExtra("resId",R.drawable.perasaansedih);
+            i.putExtra("resId2", perasaan);
+            startActivity(i);
         });
 
-        marahLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-                Toast.makeText(MainActivity.this, "Hari Ini Anda Marah! Santai ya!", Toast.LENGTH_SHORT).show();
-                String perasaan = "Marah!";
-                Intent i = new Intent(MainActivity.this, Buatjurnal.class);
-                i.putExtra("resId",R.drawable.perasaanmarah);
-                i.putExtra("resId2", perasaan);
-                startActivity(i);
-            }
+        marahLayout.setOnClickListener(v -> { //lambda
+            dialog.dismiss();
+            Toast.makeText(MainActivity.this, "Hari Ini Anda Marah! Santai ya!", Toast.LENGTH_SHORT).show();
+            String perasaan = "Marah!";
+            Intent i = new Intent(MainActivity.this, Buatjurnal.class);
+            i.putExtra("resId",R.drawable.perasaanmarah);
+            i.putExtra("resId2", perasaan);
+            startActivity(i);
         });
 
-        cancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
+        cancelButton.setOnClickListener(v -> dialog.dismiss()); //lambda
 
         dialog.show();
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);

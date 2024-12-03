@@ -1,8 +1,6 @@
 package com.example.remood;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteConstraintException;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,21 +10,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.SearchView;
 import android.widget.Toast;
-import com.android.volley.Request;
-import com.android.volley.toolbox.StringRequest;
-import com.example.remood.base.VolleySingleton;
 import com.example.remood.databinding.FragmentJurnalBinding;
 import com.example.remood.model.JurnalModel;
-import com.example.remood.model.JurnalResponse;
-import com.google.gson.Gson;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,9 +26,6 @@ public class JurnalFragment extends Fragment implements JurnalItemAdapter.ItemCa
     private JurnalItemAdapter adapter;
 
     private JurnalDatabase jurnalDB;
-
-    private SearchView searchView;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
