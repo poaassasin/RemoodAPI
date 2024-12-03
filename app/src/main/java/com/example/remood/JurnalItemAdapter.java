@@ -1,23 +1,14 @@
 package com.example.remood;
 
 import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.remood.databinding.ItemJurnalBinding;
 import com.example.remood.model.JurnalModel;
-
-import org.w3c.dom.Text;
-
 import java.util.List;
 
 public class JurnalItemAdapter extends RecyclerView.Adapter<JurnalItemAdapter.ViewHolder> {
@@ -49,8 +40,6 @@ public class JurnalItemAdapter extends RecyclerView.Adapter<JurnalItemAdapter.Vi
         private final TextView tvDescription;
         private final View btDeleteItem;
         private final View btEditItem;
-        private List<JurnalModel> dataJurnal;
-
         public ViewHolder(@NonNull View view) {
             super(view);
             this.ivEmoji = view.findViewById(R.id.emotion);

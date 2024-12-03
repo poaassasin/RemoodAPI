@@ -8,7 +8,6 @@ import androidx.room.Update;
 
 import com.example.remood.model.JurnalModel;
 
-import java.sql.SQLException;
 import java.util.List;
 
 @Dao
@@ -22,20 +21,8 @@ public interface JurnalDAO {
     @Update
     public void updateJurnal(JurnalModel jurnal);
 
-    @Query("select * from jurnal where jurnal_id LIKE :jurnal_id LIMIT 1")
-    public JurnalModel findById(long jurnal_id);
-
-    @Query("select * from jurnal where judul like :judul limit 1")
-    public JurnalModel findByName(String judul);
-
     @Query("select * from jurnal where waktu like :waktu limit 1")
     public JurnalModel findByWaktu(String waktu);
-
-    @Query("SELECT EXISTS(SELECT * FROM jurnal WHERE jurnal_id = :jurnal_id)")
-    Boolean is_exist(long jurnal_id);
-
-    @Query("DELETE FROM jurnal WHERE jurnal_id = :jurnal_id")
-    public void deleteById(long jurnal_id);
 
     @Query("select * from jurnal")
     public List<JurnalModel> getAllJurnal();
