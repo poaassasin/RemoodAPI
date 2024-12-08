@@ -142,6 +142,18 @@ public class JurnalFragment extends Fragment implements JurnalItemAdapter.ItemCa
                 intent.putExtra("currentTime", listData.get(position).getWaktu());
                 getActivity().startActivity(intent);
                 break;
+<<<<<<< HEAD
+=======
+            case "lihatDetail":
+                Intent intentDetail = new Intent(getActivity().getApplicationContext(), DetailJurnal.class);
+                intentDetail.putExtra("position", position);
+                intentDetail.putExtra("currentMood", listData.get(position).getLinkGambarEmosi());
+                intentDetail.putExtra("currentTitle", listData.get(position).getCurhatan());
+                intentDetail.putExtra("currentDesc", listData.get(position).getDetailCurhatan());
+                intentDetail.putExtra("currentDate", listData.get(position).getTanggal());
+                intentDetail.putExtra("currentTime", listData.get(position).getWaktu());
+                getActivity().startActivity(intentDetail);
+>>>>>>> d1831e0 (Menambahkan RecyclerView, Tambah Edit Hapus Pilihan Mood, dan Detail Jurnal punya Alya dan Zahrina)
             default:
                 Toast.makeText(getActivity().getApplicationContext(), "Tidak ada pilihan", Toast.LENGTH_SHORT).show();
         }

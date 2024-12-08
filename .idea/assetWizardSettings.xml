@@ -308,7 +308,11 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
+<<<<<<< HEAD
                                       <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/error/baseline_error_24.xml" />
+=======
+                                      <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/add/baseline_add_24.xml" />
+>>>>>>> d1831e0 (Menambahkan RecyclerView, Tambah Edit Hapus Pilihan Mood, dan Detail Jurnal punya Alya dan Zahrina)
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -318,8 +322,12 @@
                         </option>
                         <option name="values">
                           <map>
+<<<<<<< HEAD
                             <entry key="color" value="b60e0e" />
                             <entry key="outputName" value="baseline_error_24" />
+=======
+                            <entry key="outputName" value="baseline_add_24" />
+>>>>>>> d1831e0 (Menambahkan RecyclerView, Tambah Edit Hapus Pilihan Mood, dan Detail Jurnal punya Alya dan Zahrina)
                           </map>
                         </option>
                       </PersistentState>

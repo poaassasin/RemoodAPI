@@ -9,6 +9,10 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         app:cardCornerRadius="15dp"
+<<<<<<< HEAD
+=======
+        android:id="@+id/cardItem"
+>>>>>>> d1831e0 (Menambahkan RecyclerView, Tambah Edit Hapus Pilihan Mood, dan Detail Jurnal punya Alya dan Zahrina)
         android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"

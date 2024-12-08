@@ -1,6 +1,10 @@
 package com.example.remood;
 
 import android.app.DatePickerDialog;
+<<<<<<< HEAD
+=======
+import android.content.Intent;
+>>>>>>> d1831e0 (Menambahkan RecyclerView, Tambah Edit Hapus Pilihan Mood, dan Detail Jurnal punya Alya dan Zahrina)
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -114,7 +118,11 @@ public class EditJurnal extends AppCompatActivity {
                 }
             }).start();
             adapter.notifyDataSetChanged();
+<<<<<<< HEAD
             finish();
+=======
+            Intent intent = new Intent(EditJurnal.this, MainActivity.class);
+>>>>>>> d1831e0 (Menambahkan RecyclerView, Tambah Edit Hapus Pilihan Mood, dan Detail Jurnal punya Alya dan Zahrina)
         });
         kembaliTextView.setOnClickListener(v -> finish());
     }

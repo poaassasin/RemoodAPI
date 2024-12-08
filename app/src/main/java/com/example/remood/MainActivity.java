@@ -1,5 +1,9 @@
 package com.example.remood;
 
+<<<<<<< HEAD
+=======
+import android.media.Image;
+>>>>>>> d1831e0 (Menambahkan RecyclerView, Tambah Edit Hapus Pilihan Mood, dan Detail Jurnal punya Alya dan Zahrina)
 import android.os.Bundle;
 import android.view.Window;
 import android.widget.LinearLayout;
@@ -65,6 +69,10 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout sedihLayout = dialog.findViewById(R.id.layoutSedih);
         LinearLayout marahLayout = dialog.findViewById(R.id.layoutMarah);
         ImageView cancelButton = dialog.findViewById(R.id.cancelButton);
+<<<<<<< HEAD
+=======
+        ImageView addButton = dialog.findViewById(R.id.addButton);
+>>>>>>> d1831e0 (Menambahkan RecyclerView, Tambah Edit Hapus Pilihan Mood, dan Detail Jurnal punya Alya dan Zahrina)
 
         happyLayout.setOnClickListener(v -> { //lambda
             dialog.dismiss();
@@ -118,6 +126,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
         cancelButton.setOnClickListener(v -> dialog.dismiss()); //lambda
+<<<<<<< HEAD
+=======
+        addButton.setOnClickListener(v -> {
+            dialog.dismiss();
+            Intent i = new Intent(MainActivity.this, EditMood.class);
+            startActivity(i);
+        });
+>>>>>>> d1831e0 (Menambahkan RecyclerView, Tambah Edit Hapus Pilihan Mood, dan Detail Jurnal punya Alya dan Zahrina)
 
         dialog.show();
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
