@@ -122,7 +122,23 @@ public class EditJurnal extends AppCompatActivity {
             finish();
 =======
             Intent intent = new Intent(EditJurnal.this, MainActivity.class);
+<<<<<<< HEAD
 >>>>>>> d1831e0 (Menambahkan RecyclerView, Tambah Edit Hapus Pilihan Mood, dan Detail Jurnal punya Alya dan Zahrina)
+=======
+<<<<<<< HEAD
+>>>>>>> d1831e0 (Menambahkan RecyclerView, Tambah Edit Hapus Pilihan Mood, dan Detail Jurnal punya Alya dan Zahrina)
+=======
+<<<<<<< HEAD
+>>>>>>> d1831e0 (Menambahkan RecyclerView, Tambah Edit Hapus Pilihan Mood, dan Detail Jurnal punya Alya dan Zahrina)
+=======
+<<<<<<< HEAD
+>>>>>>> d1831e0 (Menambahkan RecyclerView, Tambah Edit Hapus Pilihan Mood, dan Detail Jurnal punya Alya dan Zahrina)
+=======
+            startActivity(intent);
+>>>>>>> 46711a7 (Memperbaiki SearchView, Memperbaiki Intent)
+>>>>>>> 1c597a5 (Memperbaiki SearchView, Memperbaiki Intent)
+>>>>>>> cb48000 (Memperbaiki SearchView, Memperbaiki Intent)
+>>>>>>> d89e505 (Memperbaiki SearchView, Memperbaiki Intent)
         });
         kembaliTextView.setOnClickListener(v -> finish());
     }

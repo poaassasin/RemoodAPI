@@ -78,7 +78,8 @@ public class JurnalFragment extends Fragment implements JurnalItemAdapter.ItemCa
             }
         }
         if (dataSearchList.isEmpty()) {
-            Toast.makeText(this.getActivity(), "Tidak Ditemukan", Toast.LENGTH_SHORT).show();
+            loadDatabase();
+            Toast.makeText(this.getActivity(), "Tidak Ditemukan/Kosong", Toast.LENGTH_SHORT).show();
         } else {
             adapter.setSearchList(dataSearchList);
         }
