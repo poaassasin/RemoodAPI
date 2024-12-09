@@ -1,11 +1,11 @@
 package com.example.remood;
 
-<<<<<<< HEAD
-=======
+import android.content.SharedPreferences;
 import android.media.Image;
->>>>>>> d1831e0 (Menambahkan RecyclerView, Tambah Edit Hapus Pilihan Mood, dan Detail Jurnal punya Alya dan Zahrina)
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Window;
+import android.widget.Adapter;
 import android.widget.LinearLayout;
 import android.app.Dialog;
 import android.graphics.Color;
@@ -19,18 +19,31 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.room.Room;
+
 import com.example.remood.databinding.ActivityMainBinding;
+import com.example.remood.model.JurnalModel;
+import com.google.android.material.badge.BadgeDrawable;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
+
+    private JurnalDatabase db;
+    List<JurnalModel> jurnalSize;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        replaceFragment(new HomeFragment());
+        if (savedInstanceState == null){
+            replaceFragment(new HomeFragment());
+        }else{
+            replaceFragment(new JurnalFragment());
+        }
         binding.bottomNavigationView.setBackground(null);
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
@@ -45,6 +58,21 @@ public class MainActivity extends AppCompatActivity {
             }
             return true;
         });
+        db = Room.databaseBuilder(MainActivity.this, JurnalDatabase.class,
+                "JurnalDB").allowMainThreadQueries().build();
+        jurnalSize = db.getJurnalDAO().getAllJurnal();
+        BadgeDrawable badgeDrawable = binding.bottomNavigationView.getOrCreateBadge(R.id.jurnal);
+        try {
+            if (jurnalSize.isEmpty()) {
+                badgeDrawable.setNumber(0);
+                badgeDrawable.setVisible(true);
+            } else {
+                badgeDrawable.setNumber(jurnalSize.size());
+                badgeDrawable.setVisible(true);
+            }
+        }catch (Exception e) {
+            Log.d("MainActivity", "error : "+e.getMessage());
+        }
 
         binding.floatingActionButton.setOnClickListener(v -> showBottomDialog()); //lambda
     }
@@ -69,10 +97,7 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout sedihLayout = dialog.findViewById(R.id.layoutSedih);
         LinearLayout marahLayout = dialog.findViewById(R.id.layoutMarah);
         ImageView cancelButton = dialog.findViewById(R.id.cancelButton);
-<<<<<<< HEAD
-=======
         ImageView addButton = dialog.findViewById(R.id.addButton);
->>>>>>> d1831e0 (Menambahkan RecyclerView, Tambah Edit Hapus Pilihan Mood, dan Detail Jurnal punya Alya dan Zahrina)
 
         happyLayout.setOnClickListener(v -> { //lambda
             dialog.dismiss();
@@ -126,14 +151,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         cancelButton.setOnClickListener(v -> dialog.dismiss()); //lambda
-<<<<<<< HEAD
-=======
         addButton.setOnClickListener(v -> {
             dialog.dismiss();
             Intent i = new Intent(MainActivity.this, EditMood.class);
             startActivity(i);
         });
->>>>>>> d1831e0 (Menambahkan RecyclerView, Tambah Edit Hapus Pilihan Mood, dan Detail Jurnal punya Alya dan Zahrina)
 
         dialog.show();
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);

@@ -1,6 +1,7 @@
 package com.example.remood;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -25,6 +26,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.example.remood.databinding.FragmentJurnalBinding;
 import com.example.remood.model.JurnalModel;
+import com.google.android.material.badge.BadgeDrawable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -143,8 +146,7 @@ public class JurnalFragment extends Fragment implements JurnalItemAdapter.ItemCa
                 intent.putExtra("currentTime", listData.get(position).getWaktu());
                 getActivity().startActivity(intent);
                 break;
-<<<<<<< HEAD
-=======
+
             case "lihatDetail":
                 Intent intentDetail = new Intent(getActivity().getApplicationContext(), DetailJurnal.class);
                 intentDetail.putExtra("position", position);
@@ -154,7 +156,6 @@ public class JurnalFragment extends Fragment implements JurnalItemAdapter.ItemCa
                 intentDetail.putExtra("currentDate", listData.get(position).getTanggal());
                 intentDetail.putExtra("currentTime", listData.get(position).getWaktu());
                 getActivity().startActivity(intentDetail);
->>>>>>> d1831e0 (Menambahkan RecyclerView, Tambah Edit Hapus Pilihan Mood, dan Detail Jurnal punya Alya dan Zahrina)
             default:
                 Toast.makeText(getActivity().getApplicationContext(), "Tidak ada pilihan", Toast.LENGTH_SHORT).show();
         }
@@ -216,6 +217,9 @@ public class JurnalFragment extends Fragment implements JurnalItemAdapter.ItemCa
             }
             adapter.notifyDataSetChanged();
             adapter.notifyItemRemoved(position);
+            MainActivity mainActivity = ((MainActivity) getActivity());
+            mainActivity.recreate();
+            mainActivity.overridePendingTransition(0,0);
             dialog.dismiss();
         });
         btCancel.setOnClickListener(v -> dialog.dismiss());

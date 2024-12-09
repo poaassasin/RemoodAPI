@@ -16,8 +16,6 @@
         android:theme="@style/Theme.Remood"
         tools:targetApi="31">
         <activity
-<<<<<<< HEAD
-=======
             android:name=".EditMood2"
             android:exported="false" />
         <activity
@@ -27,7 +25,6 @@
             android:name=".DetailJurnal"
             android:exported="false" />
         <activity
->>>>>>> d1831e0 (Menambahkan RecyclerView, Tambah Edit Hapus Pilihan Mood, dan Detail Jurnal punya Alya dan Zahrina)
             android:name=".EditJurnal"
             android:exported="false" />
         <activity
@@ -41,10 +38,7 @@
         <activity
             android:name=".Buatjurnal"
             android:exported="false" />
-<<<<<<< HEAD
-=======
 
->>>>>>> d1831e0 (Menambahkan RecyclerView, Tambah Edit Hapus Pilihan Mood, dan Detail Jurnal punya Alya dan Zahrina)
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

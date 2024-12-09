@@ -40,11 +40,9 @@ public class JurnalItemAdapter extends RecyclerView.Adapter<JurnalItemAdapter.Vi
         private final TextView tvDescription;
         private final View btDeleteItem;
         private final View btEditItem;
-<<<<<<< HEAD
-=======
+
         private final View btCardItem;
 
->>>>>>> d1831e0 (Menambahkan RecyclerView, Tambah Edit Hapus Pilihan Mood, dan Detail Jurnal punya Alya dan Zahrina)
         public ViewHolder(@NonNull View view) {
             super(view);
             this.ivEmoji = view.findViewById(R.id.emotion);
@@ -53,11 +51,7 @@ public class JurnalItemAdapter extends RecyclerView.Adapter<JurnalItemAdapter.Vi
             this.tvDescription = view.findViewById(R.id.description);
             this.btDeleteItem = view.findViewById(R.id.delete_item);
             this.btEditItem = view.findViewById(R.id.update_item);
-<<<<<<< HEAD
-
-=======
             this.btCardItem = view.findViewById(R.id.cardItem);
->>>>>>> d1831e0 (Menambahkan RecyclerView, Tambah Edit Hapus Pilihan Mood, dan Detail Jurnal punya Alya dan Zahrina)
         }
         public void bind(JurnalModel model, int position, ItemCallbackListener listener) {
             int emotionResource = 0;
@@ -86,11 +80,7 @@ public class JurnalItemAdapter extends RecyclerView.Adapter<JurnalItemAdapter.Vi
             this.ivEmoji.setImageResource(
                     emotionResource
             );
-<<<<<<< HEAD
-
-=======
             this.btCardItem.setOnClickListener(v -> listener.onClick(position, "lihatDetail"));
->>>>>>> d1831e0 (Menambahkan RecyclerView, Tambah Edit Hapus Pilihan Mood, dan Detail Jurnal punya Alya dan Zahrina)
             this.btDeleteItem.setOnClickListener(v -> listener.onClick(position, "delete"));
             this.btEditItem.setOnClickListener(v -> listener.onClick(position, "edit"));
         }

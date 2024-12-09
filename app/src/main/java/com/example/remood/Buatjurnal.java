@@ -1,5 +1,7 @@
 package com.example.remood;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -73,6 +75,9 @@ public class Buatjurnal extends AppCompatActivity {
             Toast.makeText(Buatjurnal.this, emosi, Toast.LENGTH_SHORT).show();
             JurnalModel p1 = new JurnalModel(judulCerita, detailJudul, emosi, tanggal, waktu);
             jurnalDB.getJurnalDAO().addJurnal(p1);
+            Intent intent = new Intent(Buatjurnal.this, MainActivity.class);
+            intent.putExtra("REPLACE_FRAGMENT", true);
+            startActivity(intent);
             finish();
         });
         tvKembaliBuat.setOnClickListener(v->finish());

@@ -9,8 +9,9 @@
         android:title="Edulife"
         android:icon="@drawable/baseline_play_display_24"/>
     <item
-
-        android:title="" />
+        android:id="@+id/item_none"
+        android:enabled="false"
+        android:title="Curhat" />
     <item
         android:id="@+id/jurnal"
         android:title="Jurnal"
